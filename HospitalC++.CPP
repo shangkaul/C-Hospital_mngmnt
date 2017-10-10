@@ -1,16 +1,44 @@
+/*
+
+			  &&&&&&&&&&&&&&&&&&&&&&&&&&
+				 &C++ PROJECT&
+			  &&&&&&&&&&&&&&&&&&&&&&&&&&
+
+			  ##########################
+			  ##########################
+			  #####	  MADE BY--    #####
+			  #####	 SHIVANG KAUL  #####
+			  #####   MOHIT JAIN   #####
+			  #####  RAHUL PRADEEP #####
+			  ##########################
+			  ##########################
+*/
+//sd
+
+
 	//Header files used
 
+
 #include<iostream.h>
+
 #include<string.h>
+
 #include<stdio.h>
+
 #include<fstream.h>
+
 #include<process.h>
+
 #include<conio.h>
 
 
+
 class cust                                                        //records maintained through class
+
    {
+
      public:
+
       int id;
       char name[50];
       char doc[500];
@@ -18,25 +46,46 @@ class cust                                                        //records main
       unsigned int room_no;
       char mob[10];
 
+
+
       public:
+
       void getdata()                                             //Input function
       {
+
 	 cout<<"\nEnter your details";
+
 	 cout<<"\nEnter patient id no.";
+
 	 cin>>id;
+
 	 cout<<"\nEnter your name";
+
 	 gets(name);
+
 	 cout<<"\nEnter your disease/symptom";
+
 	 cin>>des;
+
 	 cout<<"\nEnter your contact no.";
+
 	 cin.getline(mob,10);
+
 	 cout<<"\nEnter room allotted";
+
 	 cin>>room_no;
+
    cout<<"\nName of Doctor allotted";
+
    cin>>doc;
-      }
+
+
+   }
+
+
       void putdata()                                            //output function
       {
+
 	 cout<<"\n\nYour details are";
 	 cout<<"\nPatient id ";
 	 cout<<id;
@@ -44,28 +93,29 @@ class cust                                                        //records main
 	 puts(name);
 	 cout<<"\nDoctor assigned ";
 	 puts(doc);
-	 cout<<"\nDesease ";
+	 cout<<"\nDisease ";
 	 cout<<des;
 	 cout<<"\nContact no. ";
 	 cout.write(mob,10);
-	 cout<<"\nRoom_no";
+	 cout<<"\nRoom no";
 	 cout<<room_no;
+
       }
+
+
       int getacc()                                               //to return Patient id.
       {
-	 return id;
-      }
-  //     void wit(int amt)                                          //To withdraw amount
-  //     {
-	//  room_no=room_no-amt;
 
-  //     }
-  //     void dep(int amt)                                          //To deposit amount
-  //     {
-	//  room_no=room_no+amt;
-  //     }
+	 return id;
+
+      }
+
+
+
+
       void new_patient()                                         //Enter new account details
       {
+
 	 cout<<"\nEnter your details";
 	 cout<<"\nChoose your Patient id.";
 	 cin>>id;
@@ -73,21 +123,23 @@ class cust                                                        //records main
 	 gets(name);
 	 cout<<"\nDoctor assigned";
 	 gets(doc);
-	 cout<<"\nDesease";
+	 cout<<"\nDisease";
 	 cin>>des;
 	 cout<<"\nEnter your contact no.";
 	 cin>>mob;
 	 cout<<"\nRoom allotted";
 	 cin>>room_no;
+
       }
       void modify()                                              //Modify account details
      {
+
 	 cout<<"\nEnter your details to be modified";
 	 cout<<"\nEnter your name";
 	 gets(name);
 	 cout<<"\nDoctor allotted";
 	 gets(doc);
-	 cout<<"\nDesease:";
+	 cout<<"\nDisease:";
 	 cin>>des;
 	 cout<<"\nEnter your contact no.";
 	 gets(mob);
@@ -102,6 +154,7 @@ void main();
 
 void newacc()                                                     //function for creating new account
  {
+
 	cust s;
 	ofstream fo;
 	fo.open("cust.dat",ios::binary|ios::app);
@@ -113,8 +166,11 @@ void newacc()                                                     //function for
 	main();
 
  }
+
 void accdet(int ac)                                             //function to search Patient by given Patient id no.
- {   cust s;
+ {
+
+      cust s;
      int f=0;
      ifstream fi;
      fi.open("cust.dat",ios::binary);
@@ -136,9 +192,11 @@ void accdet(int ac)                                             //function to se
      if(f==0)
 	cout<<"\nPatient not found";
  getch();
+
 }
 void mod(int n)                                                 //function to modify account details
 {
+
 
    cust s;
    fstream fio;
@@ -196,74 +254,7 @@ void del(int n)                                                     //function t
 getch();
 }
 
-// void withdraw(int n)                                                //function to withdraw amount
-// {
-//    int amt,f=0;
-//    cust s;
-//    fstream fio;
-//    fio.open("cust.dat", ios::binary|ios::in|ios::out);
-//    if(!fio)
-//    {
-// 	cout<<"File cant be opened. Press any key to contine.";
-// 	return;
-//    }
-//    while(fio.read((char *) &s, sizeof(s)) && f==0)
-//    {
-//      if(s.getacc()==n)
-//      {
-// 	 s.putdata();
-// 	 cout<<"\n\nEnter The amount to be withdrawn";
-// 	 cin>>amt;
-// 	 s.wit(amt);
 
-//        int pos=(-1)* sizeof(s);
-//        fio.seekp(pos,ios::cur);
-//        fio.write((char *) &s, sizeof(s));
-//        cout<<"\nRecord updated";
-//        f=1;
-//        cout<<"\nMoney withdrawn";
-
-//      }
-//    }
-//    fio.close();
-//    if(f==0)
-//    cout<<"\nRecord Not Found ";
-// getch();
-// exacc();
-// }
-
-// void deposit(int n)                                                  //function to deposit amount
-// {
-//    int amt,f=0;
-//    cust s;
-//    fstream fio;
-//    fio.open("cust.dat", ios::binary|ios::in|ios::out);
-//    if(!fio)
-//    {
-//        cout<<"File cant be opened. Press any key to contine.";
-//        return;
-//    }
-//    while(fio.read((char *) &s, sizeof(s)) && f==0)
-//    {
-//      if(s.getacc()==n)
-//      {
-// 	 s.putdata();
-// 	 cout<<"\nEnter The amount to be deposited";
-// 	 cin>>amt;
-// 	 s.dep(amt);
-// 	 int pos=(-1)* sizeof(s);
-// 	 fio.seekp(pos,ios::cur);
-// 	 fio.write((char *) &s, sizeof(s));
-// 	 cout<<"\nMoney deposited";
-// 	 f=1;
-//      }
-//    }
-//    fio.close();
-//    if(f==0)
-//    cout<<"\nRecord Not Found ";
-// getch();
-// exacc();
-// }
 void disp()                                                 //function to show all account holders(pass=1111)
 {
    cust s;
@@ -272,6 +263,7 @@ void disp()                                                 //function to show a
    cout<<"\n\nPatients presently in STAR CITY HOSPITAL\n\n";
    while(fi.read((char *) &s, sizeof(s)))
    {
+   getch();
       s.putdata();
    }
    fi.close();
